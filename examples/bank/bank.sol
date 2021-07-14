@@ -14,8 +14,9 @@ contract Bank is Ownable, Destroyable {
         return balance[msg.sender];
     }
     
-    function withdraw(uint amount) public onlyOwner returns (uint){
+    function withdraw(uint amount) public returns (uint){
         require(balance[msg.sender] >= amount);
+        balance[msg.sender] -= amount;
         msg.sender.transfer(amount);
         return balance[msg.sender];
     }
