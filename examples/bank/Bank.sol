@@ -2,9 +2,15 @@ pragma solidity 0.7.5;
 import "./Ownable.sol";
 import "./Destroyable.sol";
 
+interface GovernmentInterface{
+    function addTransaction(address _from, address _to, uint _amount) external;
+}
+
 // Create a bank that can receive and send money, including a selfdestruct
 contract Bank is Ownable, Destroyable {
 
+    GovernmentInterface governmentInstance = GovernmentInterface(0xd9145CCE52D386f254917e481eB44e9943F39138);
+    
     mapping(address => uint) balance;
     
     event depositDone(uint amount, address indexed depositedTo);
@@ -37,6 +43,8 @@ contract Bank is Ownable, Destroyable {
         uint previousSenderBalance = balance[msg.sender];
         
         _transfer(msg.sender, recipient, amount);
+        
+        governmentInstance.addTransaction(msg.sender, recipient, amount);
         
         assert(balance[msg.sender] == previousSenderBalance - amount);
     }
