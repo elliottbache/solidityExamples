@@ -1,4 +1,6 @@
+// Definition and use of owner
 contract Ownable {
+
     address internal owner;
     
     modifier onlyOwner {
