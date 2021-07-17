@@ -1,0 +1,1 @@
+This is a multisignature wallet.  This wallet allows the creator to define owners of the wallet, who are then able to create requests for outgoing transfers.  The number of approvals required by the owners is a variable that can be defined by the creator.  The constructor allows the creator to define preliminar owners and number of approvals necessary for a transfer.
