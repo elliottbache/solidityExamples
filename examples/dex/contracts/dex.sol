@@ -86,7 +86,6 @@ contract Dex is Wallet {
             require(balances[msg.sender][ticker] >= amount, "Insufficient balance");
         }            
         Order[] storage orders = orderBook[ticker][orderBookSide];
-//        require(orders.length > 0, "No limit orders in order book.  Place limit order first.");
 
         uint totalFilled = 0;
         for (uint256 i=orders.length; i>0 && totalFilled < amount; i--) {
