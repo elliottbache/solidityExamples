@@ -123,7 +123,6 @@ contract.skip("Dex", accounts => {
         let link = await Link.deployed()
         let dex = await Dex.deployed()
         await dex.addToken(web3.utils.fromUtf8("LINK"), link.address, {from: accounts[0]})
-//        let balance = await dex.balances(accounts[0], web3.utils.fromUtf8("ETH"))
         let balance = await dex.balanceEth()
         console.log(balance)
         await dex.withdrawEth(balance);
