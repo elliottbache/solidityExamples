@@ -1,2 +1,1 @@
-# solidity
-Code related to Solidity programming language.
+These are different test examples that have been programmed by yours truly, Elliott Baché
